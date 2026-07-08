@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表示 | NUWORKS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=DM+Sans:wght@300;400;700&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#FF4B8B;--purple:#9B51E0;--blue:#4A90D9;
+  --navy:#1A1A3E;--dark:#0D0D20;
+  --grad:linear-gradient(135deg,#FF6B9D 0%,#9B51E0 50%,#4A90D9 100%);
+  --white:#FFF;--light:#F8F8F8;--text:#1A1A3E;--muted:#666;--border:#E8E8F0;
+  --sans:'Noto Sans JP',sans-serif;
+  --dm:'DM Sans',sans-serif;
+  --disp:'Barlow Condensed',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--light);color:var(--text);
+  -webkit-font-smoothing:antialiased;padding-top:56px;
+}
+
+/* ---- BACK BAR ---- */
+.back-bar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(10,15,46,0.97);
+  padding:0 24px;height:56px;
+  display:flex;align-items:center;gap:16px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  backdrop-filter:blur(20px);
+}
+.back-bar a{
+  font-size:12px;color:rgba(255,255,255,0.55);text-decoration:none;
+  font-family:var(--dm);letter-spacing:.08em;
+  display:flex;align-items:center;gap:6px;transition:color .2s;
+}
+.back-bar a:hover{color:rgba(255,255,255,.9)}
+.back-bar .sep{color:rgba(255,255,255,.2);font-size:12px}
+.back-bar .current{
+  font-size:13px;color:rgba(255,255,255,.85);
+  font-weight:700;font-family:var(--sans);
+}
+
+/* ---- PAGE HERO ---- */
+.page-hero{
+  background:var(--navy);
+  padding:56px 40px 52px;
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 80% at 10% 50%,rgba(255,75,139,.1),transparent),
+    radial-gradient(ellipse 50% 60% at 90% 30%,rgba(74,144,217,.1),transparent);
+}
+.page-hero-inner{position:relative;z-index:1;max-width:960px;margin:0 auto}
+.page-hero-tag{
+  font-family:var(--dm);font-size:10px;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:14px;display:block;
+}
+.page-hero-title{
+  font-size:clamp(26px,4vw,40px);font-weight:900;
+  color:var(--white);letter-spacing:-.01em;line-height:1.2;margin-bottom:12px;
+}
+.page-hero-sub{
+  font-size:14px;color:rgba(255,255,255,.45);
+  font-weight:300;line-height:2;
+}
+.grad-bar{height:3px;width:48px;background:var(--grad);border-radius:2px;margin-top:20px}
+
+/* ---- MAIN LAYOUT ---- */
+.main{max-width:960px;margin:0 auto;padding:48px 40px 80px}
+
+/* ---- SECTION BLOCK ---- */
+.section-block{
+  background:var(--white);border-radius:16px;
+  border:1px solid var(--border);
+  overflow:hidden;margin-bottom:16px;
+}
+.section-block-header{
+  padding:20px 32px;
+  background:linear-gradient(90deg,rgba(155,81,224,.04),rgba(74,144,217,.04));
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+}
+.section-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--grad);color:var(--white);
+  font-family:var(--dm);font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.section-label{
+  font-size:13px;font-weight:900;color:var(--text);letter-spacing:.02em;
+}
+.section-body{padding:28px 32px}
+
+/* ---- TABLE ---- */
+.info-table{width:100%;border-collapse:collapse}
+.info-table tr{border-bottom:1px solid var(--border)}
+.info-table tr:last-child{border-bottom:none}
+.info-table th{
+  width:200px;padding:18px 0;
+  font-size:12px;font-weight:700;color:var(--muted);
+  text-align:left;vertical-align:top;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.info-table td{
+  padding:18px 0 18px 24px;
+  font-size:14px;color:var(--text);
+  line-height:2;vertical-align:top;
+}
+.info-table td a{color:var(--pink);text-decoration:none}
+.info-table td a:hover{text-decoration:underline}
+
+/* ---- PRICE TABLE ---- */
+.price-service{margin-bottom:28px}
+.price-service:last-child{margin-bottom:0}
+.price-service-name{
+  font-size:13px;font-weight:900;color:var(--purple);
+  letter-spacing:.04em;margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.price-service-name::before{
+  content:'';display:block;width:4px;height:16px;
+  background:var(--grad);border-radius:2px;flex-shrink:0;
+}
+.price-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.price-plan{
+  background:var(--light);border-radius:10px;
+  padding:14px 16px;border:1px solid var(--border);
+}
+.price-plan-label{
+  font-size:10px;font-weight:700;color:var(--muted);
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;
+}
+.price-plan-amount{
+  font-size:18px;font-weight:900;color:var(--text);
+  letter-spacing:-.02em;line-height:1.2;
+}
+.price-plan-amount small{font-size:12px;font-weight:400;color:var(--muted)}
+.price-note{
+  font-size:12px;color:var(--muted);margin-top:10px;line-height:1.8;
+}
+.price-plan.highlight{
+  background:linear-gradient(135deg,rgba(155,81,224,.06),rgba(74,144,217,.06));
+  border-color:rgba(155,81,224,.2);
+}
+.price-plan.highlight .price-plan-amount{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* single-price plan (no 3-column) */
+.price-single{
+  background:var(--light);border-radius:10px;
+  padding:14px 20px;border:1px solid var(--border);
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.price-single-item{display:flex;flex-direction:column;gap:2px}
+.price-single-item .lbl{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.1em}
+.price-single-item .val{font-size:18px;font-weight:900;color:var(--text)}
+
+/* ---- COMING SOON CARD ---- */
+.coming-soon-card{
+  background:var(--navy);border-radius:14px;
+  padding:32px 28px;
+  display:flex;align-items:flex-start;gap:20px;
+  position:relative;overflow:hidden;
+  margin-bottom:28px;
+}
+.coming-soon-card::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 50%,rgba(155,81,224,.15),transparent),
+    radial-gradient(ellipse 40% 60% at 0% 50%,rgba(255,75,139,.1),transparent);
+}
+.cs-badge{
+  background:var(--grad);color:var(--white);
+  border-radius:8px;padding:6px 12px;
+  font-family:var(--dm);font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  flex-shrink:0;white-space:nowrap;position:relative;z-index:1;
+  margin-top:2px;
+}
+.cs-body{position:relative;z-index:1}
+.cs-title{
+  font-size:16px;font-weight:900;color:var(--white);
+  margin-bottom:6px;letter-spacing:-.01em;
+}
+.cs-desc{
+  font-size:13px;color:rgba(255,255,255,.5);
+  line-height:1.8;font-weight:300;
+}
+.cs-dots{
+  display:flex;gap:5px;margin-top:12px;align-items:center;
+}
+.cs-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  animation:csDot 1.4s ease-in-out infinite;
+}
+.cs-dot:nth-child(2){animation-delay:.2s}
+.cs-dot:nth-child(3){animation-delay:.4s}
+@keyframes csDot{0%,80%,100%{transform:scale(1);opacity:.3}40%{transform:scale(1.4);opacity:1;background:var(--pink)}}
+
+/* ---- NOTE BLOCK ---- */
+.note-block{
+  background:rgba(255,75,139,.04);border-radius:10px;
+  border-left:3px solid var(--pink);
+  padding:14px 18px;font-size:13px;
+  color:var(--muted);line-height:1.9;margin-top:12px;
+}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:700px){
+  .main{padding:32px 16px 60px}
+  .page-hero{padding:40px 20px 36px}
+  .section-body{padding:20px 20px}
+  .section-block-header{padding:16px 20px}
+  .info-table th{width:130px;font-size:11px}
+  .info-table td{padding:14px 0 14px 16px;font-size:13px}
+  .price-plans{grid-template-columns:1fr 1fr}
+  .back-bar{padding:0 16px}
+}
+@media(max-width:480px){
+  .price-plans{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- BACK BAR -->
+<div class="back-bar">
+  <a href="javascript:window.parent.showTop ? window.parent.showTop() : history.back()">← TOP</a>
+  <span class="sep">/</span>
+  <span class="current">特定商取引法に基づく表示</span>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-hero-tag">Legal Notice</span>
+    <h1 class="page-hero-title">特定商取引法に基づく表示</h1>
+    <p class="page-hero-sub">
+      消費者保護のため、特定商取引法に基づき以下の事項を表示します。
+    </p>
+    <div class="grad-bar"></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- 1. 事業者情報 -->
+  <div class="section-block">
+    <div class="section-block-header">
+      <div class="section-num">1</div>
+      <div class="section-label">事業者情報</div>
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>販売業者</th>
+          <td>NUWORKS株式会社</td>
+        </tr>
+        <tr>
+          <th>代表責任者</th>
+          <td>代表取締役　三浦 亮</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>
+            〒171-0022<br>
+            東京都豊島区南池袋一丁目16番15号<br>
+            ダイヤゲート池袋5階
+          </td>
+        </tr>
+        <tr>
+          <th>連絡先</th>
+          <td>
+            <a href="mailto:info@nuworks.jp">info@nuworks.jp</a>（メールアドレスは確定次第更新します）<br>
+            <span style="font-size:12px;color:var(--muted)">※電話番号は請求に応じて電子メールでお知らせします</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2. 商品代金・その他必要な代金 -->
+  <div class="section-block">
+    <div class="section-block-header">
+      <div class="section-num">2</div>
+      <div class="section-label">商品代金・その他必要な代金（すべて税抜価格）</div>
+    </div>
+    <div class="section-body">
+
+      <!-- SNSBRIDGE / AI広告 -->
+      <div class="price-service">
+        <div class="price-service-name">SNSBRIDGE・AI広告</div>
+        <div class="price-plans">
+          <div class="price-plan">
+            <div class="price-plan-label">Light Plan</div>
+            <div class="price-plan-amount">月額 30,000<small>円</small></div>
+          </div>
+          <div class="price-plan highlight">
+            <div class="price-plan-label">Standard Plan</div>
+            <div class="price-plan-amount">月額 55,000<small>円</small></div>
+          </div>
+          <div class="price-plan">
+            <div class="price-plan-label">Premium Plan</div>
+            <div class="price-plan-amount">月額 80,000<small>円</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- インスタ広告 -->
+      <div class="price-service">
+        <div class="price-service-name">インスタ広告（for 集客・for 採用）</div>
+        <div class="price-plans">
+          <div class="price-plan">
+            <div class="price-plan-label">Light Plan</div>
+            <div class="price-plan-amount">月額 50,000<small>円</small></div>
+          </div>
+          <div class="price-plan highlight">
+            <div class="price-plan-label">Standard Plan</div>
+            <div class="price-plan-amount">月額 90,000<small>円</small></div>
+          </div>
+          <div class="price-plan">
+            <div class="price-plan-label">Premium Plan</div>
+            <div class="price-plan-amount">月額 120,000<small>円</small></div>
+          </div>
+        </div>
+        <p class="price-note">※ 初期費用 20,000円 ／ 広告配信費・バナー制作費・運用費すべて込み</p>
+      </div>
+
+      <!-- ベンチマーク広告 -->
+      <div class="price-service">
+        <div class="price-service-name">ベンチマーク広告</div>
+        <div class="price-plans">
+          <div class="price-plan">
+            <div class="price-plan-label">Light Plan</div>
+            <div class="price-plan-amount">月額 50,000<small>円</small></div>
+            <p class="price-note" style="margin-top:6px">初期費用 25,000円</p>
+          </div>
+          <div class="price-plan highlight">
+            <div class="price-plan-label">Standard Plan</div>
+            <div class="price-plan-amount">月額 70,000<small>円</small></div>
+          </div>
+          <div class="price-plan">
+            <div class="price-plan-label">Premium Plan</div>
+            <div class="price-plan-amount">月額 100,000<small>円</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- タワマンターゲティング広告 — Coming Soon -->
+      <div class="price-service">
+        <div class="price-service-name">タワマンターゲティング広告</div>
+        <div class="coming-soon-card">
+          <div class="cs-badge">COMING SOON</div>
+          <div class="cs-body">
+            <div class="cs-title">現在、サービス詳細を整備中です</div>
+            <div class="cs-desc">
+              初期費用：100,000円 ／ 月額利用料：300,000円〜<br>
+              正式提供に向けて準備を進めています。詳細はお問い合わせください。
+            </div>
+            <div class="cs-dots">
+              <div class="cs-dot"></div>
+              <div class="cs-dot"></div>
+              <div class="cs-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-block">
+        ※ 各プランの詳細は申込書に記載されます。<br>
+        ※ 振込手数料はお客様負担となります。
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 引渡し時期 -->
+  <div class="section-block">
+    <div class="section-block-header">
+      <div class="section-num">3</div>
+      <div class="section-label">引渡し時期</div>
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>引渡し時期</th>
+          <td>商品お申込み時にご案内いたします。</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4. 支払方法と支払期限 -->
+  <div class="section-block">
+    <div class="section-block-header">
+      <div class="section-num">4</div>
+      <div class="section-label">支払方法と支払期限</div>
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>支払方法</th>
+          <td>クレジットカード・銀行振込</td>
+        </tr>
+        <tr>
+          <th>支払期限</th>
+          <td>支払期限につきましては取引によって異なります。</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5. 返品・交換・キャンセル -->
+  <div class="section-block">
+    <div class="section-block-header">
+      <div class="section-num">5</div>
+      <div class="section-label">返品・交換・キャンセルについて</div>
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>返品・キャンセル</th>
+          <td>
+            ご注文後の返品・交換・キャンセルは、原則としてお受けしておりません。<br>
+            <span style="font-size:12px;color:var(--muted)">詳細は別途ご契約内容をご確認ください。</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 6. 動作環境 -->
+  <div class="section-block">
+    <div class="section-block-header">
+      <div class="section-num">6</div>
+      <div class="section-label">ソフトウェアを使用するための動作環境</div>
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>動作環境</th>
+          <td>
+            インターネット接続環境があればご利用いただけます。特定のソフトウェアは不要です。<br>
+            広告配信レポートの閲覧にはGoogle Chromeなど最新ブラウザを推奨します。
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- お問い合わせ -->
+  <div style="text-align:center;padding:48px 0 0">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:2">
+      上記内容についてご不明な点がございましたら、お気軽にお問い合わせください。
+    </p>
+    <a href="mailto:info@nuworks.jp"
+       style="display:inline-flex;align-items:center;gap:10px;
+              background:var(--grad);color:#fff;border-radius:100px;
+              padding:14px 40px;font-size:14px;font-weight:700;
+              text-decoration:none;box-shadow:0 6px 24px rgba(255,75,139,.25);
+              transition:opacity .2s,transform .2s;font-family:'Noto Sans JP',sans-serif"
+       onmouseover="this.style.opacity='.85';this.style.transform='translateY(-2px)'"
+       onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+      お問い合わせはこちら →
+    </a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy);color:rgba(255,255,255,.3);padding:32px 40px;text-align:center;margin-top:0">
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:6px">
+    NUWORKS <span style="background:linear-gradient(135deg,#FF6B9D,#9B51E0,#4A90D9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">株式会社</span>
+  </div>
+  <div style="font-size:11px;line-height:2;margin-bottom:8px">
+    〒171-0022 東京都豊島区南池袋一丁目16番15号 ダイヤゲート池袋5階
+  </div>
+  <div style="font-size:11px">© 2025 NUWORKS Inc. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
