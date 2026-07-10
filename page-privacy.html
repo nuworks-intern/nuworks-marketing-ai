@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | NUWORKS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=DM+Sans:wght@300;400;700&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#FF4B8B;--purple:#9B51E0;--blue:#4A90D9;
+  --navy:#1A1A3E;--dark:#0D0D20;
+  --grad:linear-gradient(135deg,#FF6B9D 0%,#9B51E0 50%,#4A90D9 100%);
+  --white:#FFF;--light:#F8F8F8;--text:#1A1A3E;--muted:#666;--border:#E8E8F0;
+  --sans:'Noto Sans JP',sans-serif;--dm:'DM Sans',sans-serif;--disp:'Barlow Condensed',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--light);color:var(--text);-webkit-font-smoothing:antialiased;padding-top:56px}
+.back-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,15,46,0.97);padding:0 24px;height:56px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(20px)}
+.back-bar a{font-size:12px;color:rgba(255,255,255,0.55);text-decoration:none;font-family:var(--dm);letter-spacing:.08em;display:flex;align-items:center;gap:6px;transition:color .2s}
+.back-bar a:hover{color:rgba(255,255,255,.9)}
+.back-bar .sep{color:rgba(255,255,255,.2);font-size:12px}
+.back-bar .current{font-size:13px;color:rgba(255,255,255,.85);font-weight:700}
+.page-hero{background:var(--navy);padding:56px 40px 52px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 10% 50%,rgba(255,75,139,.1),transparent),radial-gradient(ellipse 50% 60% at 90% 30%,rgba(74,144,217,.1),transparent)}
+.page-hero-inner{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.page-hero-tag{font-family:var(--dm);font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;display:block}
+.page-hero-title{font-size:clamp(26px,4vw,40px);font-weight:900;color:var(--white);letter-spacing:-.01em;line-height:1.2;margin-bottom:12px}
+.page-hero-sub{font-size:14px;color:rgba(255,255,255,.45);font-weight:300;line-height:2}
+.grad-bar{height:3px;width:48px;background:var(--grad);border-radius:2px;margin-top:20px}
+.main{max-width:880px;margin:0 auto;padding:48px 40px 80px}
+.intro{font-size:14px;line-height:2.1;color:var(--text);margin-bottom:16px;font-weight:400}
+.sec-heading{font-size:18px;font-weight:900;color:var(--text);margin:48px 0 20px;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.sec-heading::before{content:'';display:block;width:5px;height:22px;background:var(--grad);border-radius:3px}
+.sec-heading:first-of-type{margin-top:8px}
+.policy-block{background:var(--white);border-radius:16px;border:1px solid var(--border);overflow:hidden;margin-bottom:14px}
+.policy-header{padding:18px 28px;background:linear-gradient(90deg,rgba(155,81,224,.04),rgba(74,144,217,.04));border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.policy-num{min-width:28px;height:28px;padding:0 8px;border-radius:14px;background:var(--grad);color:var(--white);font-family:var(--dm);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.policy-title{font-size:14px;font-weight:900;color:var(--text);letter-spacing:.02em;line-height:1.4}
+.policy-body{padding:24px 28px}
+.policy-body p{font-size:14px;line-height:2.1;color:var(--text);margin-bottom:12px;font-weight:400}
+.policy-body p:last-child{margin-bottom:0}
+.data-table{width:100%;border-collapse:collapse;margin:6px 0 4px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.data-table th{background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:12px 16px;text-align:left;letter-spacing:.04em}
+.data-table th:first-child{width:230px}
+.data-table td{font-size:13px;line-height:1.9;color:var(--text);padding:14px 16px;border-top:1px solid var(--border);vertical-align:top}
+.data-table td:first-child{font-weight:700;background:var(--light)}
+.data-subtitle{font-size:13px;font-weight:900;color:var(--purple);margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+.data-subtitle::before{content:'';width:4px;height:15px;background:var(--grad);border-radius:2px}
+.note-small{font-size:13px;color:var(--muted);line-height:1.9;margin-top:8px}
+.contact-card{background:var(--navy);border-radius:16px;padding:32px 28px;position:relative;overflow:hidden;margin:8px 0}
+.contact-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 100% 50%,rgba(155,81,224,.15),transparent),radial-gradient(ellipse 40% 60% at 0% 50%,rgba(255,75,139,.1),transparent)}
+.contact-inner{position:relative;z-index:1}
+.contact-label{font-family:var(--dm);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;display:block}
+.contact-name{font-size:15px;font-weight:900;color:var(--white);margin-bottom:12px}
+.contact-detail{font-size:13px;line-height:2;color:rgba(255,255,255,.65);font-weight:300}
+.contact-detail a{color:rgba(255,150,180,.95);text-decoration:none}
+.contact-detail a:hover{text-decoration:underline}
+.policy-sign{text-align:right;margin:28px 0 8px;font-size:13px;line-height:2;color:var(--muted)}
+.policy-sign strong{color:var(--text);font-weight:700}
+.sign-block{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px 28px;margin-top:20px}
+.sign-block .dates{font-size:13px;color:var(--muted);line-height:2;margin-bottom:14px}
+.sign-block .company{font-size:14px;font-weight:700;color:var(--text);line-height:2}
+.sign-block .contact-ref{font-size:13px;color:var(--muted);line-height:2;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.sign-block .contact-ref a{color:var(--pink);text-decoration:none}
+@media(max-width:700px){
+  .main{padding:32px 16px 60px}.page-hero{padding:40px 20px 36px}
+  .policy-body{padding:18px 18px}.policy-header{padding:14px 18px}
+  .contact-card{padding:24px 18px}.back-bar{padding:0 16px}
+  .data-table th:first-child{width:auto}
+  .data-table,.data-table tbody,.data-table tr,.data-table td,.data-table th{display:block;width:100%}
+  .data-table thead{display:none}
+  .data-table td:first-child{background:linear-gradient(90deg,rgba(155,81,224,.06),rgba(74,144,217,.06));font-size:13px}
+  .data-table td{border-top:1px solid var(--border)}
+  .data-table tr{border-bottom:2px solid var(--border);margin-bottom:0}
+}
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="javascript:window.parent.showTop ? window.parent.showTop() : history.back()">← TOP</a>
+  <span class="sep">/</span>
+  <span class="current">プライバシーポリシー</span>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-hero-tag">Privacy Policy</span>
+    <h1 class="page-hero-title">個人情報保護方針</h1>
+    <p class="page-hero-sub">当社は、お客様の個人情報を重要な情報と認識し、適切な保護に努めます。</p>
+    <div class="grad-bar"></div>
+  </div>
+</div>
+
+<main class="main">
+
+  <p class="intro">NUWORKS株式会社は、営業マーケティング事業、ワークプレイス事業を実施する上で、お客様の個人情報がプライバシーを構成する重要な情報であることを深く認識し、業務において個人情報を取り扱う場合には、個人情報に関する法令及び個人情報保護のために定めた社内規定を定め、また、組織体制を整備し、個人情報の適切な保護に努めることにより、お客様を尊重し、当社に対する期待と信頼に応えていきます。</p>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">1</div><div class="policy-title">個人情報の取得、利用、提供</div></div>
+    <div class="policy-body"><p>当社は、事業活動の範囲内で個人情報の利用目的を特定し、その目的達成のために必要な限度で公正かつ適正に個人情報の取得、利用及び提供を行います。また、取得した個人情報の目的外利用をしないよう処置を講じます。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">2</div><div class="policy-title">法令・規範の遵守</div></div>
+    <div class="policy-body"><p>当社は、個人情報に関する法令、国が定める指針、その他の規範及び社会秩序を遵守し、個人情報の適切な保護に努めます。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">3</div><div class="policy-title">個人情報の適切な管理</div></div>
+    <div class="policy-body"><p>当社は、私たちが取り扱う個人情報について、不正アクセス、紛失、破壊、改ざん、漏えいなどの危険を十分に認識し、合理的な安全対策を実施するとともに、問題が発生した場合は適切な是正措置を講じます。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">4</div><div class="policy-title">問い合わせへの対応</div></div>
+    <div class="policy-body"><p>当社は、私たちが取り扱う個人情報について、本人から開示、訂正、利用停止及び苦情相談等のお問い合わせがあった場合は適正に対応します。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">5</div><div class="policy-title">継続的改善</div></div>
+    <div class="policy-body"><p>当社は、個人情報保護に関する管理規定及び管理体制を整備し、全社員で徹底して運用するとともに定期的な見直しを行い、個人情報保護マネジメントシステムの継続的な改善に努めます。</p></div>
+  </div>
+
+  <div class="sign-block">
+    <div class="dates">2022年11月14日　制定<br>2025年4月23日　改定</div>
+    <div class="company">NUWORKS株式会社<br>代表取締役　三浦　亮</div>
+    <div class="contact-ref">
+      &lt;個人情報保護方針に関する連絡先&gt;<br>
+      個人情報問合せ窓口<br>
+      住所：東京都千代田区神田松永町13番地VORT秋葉原II<br>
+      個人情報保護管理者：管理本部長<br>
+      TEL：03-5985-6168
+    </div>
+  </div>
+
+  <h2 class="sec-heading">当社が取扱う個人情報について</h2>
+  <p class="intro">当社では「個人情報保護方針」に基づき個人情報の適切な保護に取り組んでいます。当社が事業の用に供するために取得し、または保有する個人情報について、以下の通りお知らせいたします。</p>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">1</div><div class="policy-title">個人情報の取扱事業者の名称及び住所並びに法人にあたってはその代表者の氏名</div></div>
+    <div class="policy-body"><p>事業者名　：NUWORKS株式会社<br>代表取締役：三浦　亮<br>住所　　　：東京都千代田区神田松永町13番地VORT秋葉原II</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">2</div><div class="policy-title">個人情報保護管理者（若しくはその代理人）の氏名又は職名、所属及び連絡先</div></div>
+    <div class="policy-body"><p>個人情報保護管理者：管理本部長<br>電子メール　　　　：<a href="mailto:kanrihonbu@nuworks.co.jp" style="color:var(--pink);text-decoration:none">kanrihonbu@nuworks.co.jp</a><br>電話番号　　　　　：03-5985-6168</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">3</div><div class="policy-title">個人情報の利用目的</div></div>
+    <div class="policy-body">
+      <p>当社が事業活動において取扱う個人情報の利用目的は、次の通りといたします。</p>
+      <div class="data-subtitle">保有個人データ</div>
+      <table class="data-table">
+        <thead><tr><th>個人情報の種別</th><th>利用目的</th></tr></thead>
+        <tbody>
+          <tr><td>取引先情報</td><td>業務管理、各種連絡、請求、支払い管理のため</td></tr>
+          <tr><td>従業者情報</td><td>従業者管理に係わる業務に利用するため（業務・労務・人事管理業務、給与関連業務、福利厚生業務など）</td></tr>
+          <tr><td>採用応募者情報</td><td>採用に係わる業務に利用するため（採用に関する情報提供、採用可否判断、採用業務に関する連絡など）</td></tr>
+          <tr><td>退職者情報</td><td>退職者との連絡、退職者からのお問合せへの対応に利用するため</td></tr>
+          <tr><td>お問合せ者情報</td><td>お問合せに回答するため</td></tr>
+          <tr><td>本人および代理人の情報（開示等請求時）</td><td>開示等の求めに回答するため</td></tr>
+        </tbody>
+      </table>
+      <p class="note-small">その他、個別に書面で明示したとおりの利用目的とします。</p>
+      <div class="data-subtitle">それ以外取得個人情報</div>
+      <table class="data-table">
+        <thead><tr><th>個人情報の種別</th><th>利用目的</th></tr></thead>
+        <tbody>
+          <tr><td>受託した業務により取得した個人情報</td><td>契約及びそれに伴う連絡、受託業務の遂行、アフターケアなどに利用するため</td></tr>
+          <tr><td>求人サイトから取得した情報</td><td>求人者に対する採用の可否を判断・通知するため</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">4</div><div class="policy-title">個人情報に関するお問合せ窓口</div></div>
+    <div class="policy-body"><p>保有個人データに関わるものを含め、個人情報の取扱についての苦情・相談、問合せは、下記の【問合せ窓口】までお申し出ください。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">5</div><div class="policy-title">個人情報の第三者提供について</div></div>
+    <div class="policy-body"><p>取得した個人情報は法令等による場合を除いて第三者に提供することはありません。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">6</div><div class="policy-title">個人情報の取扱いの委託について</div></div>
+    <div class="policy-body"><p>取得した個人情報の取扱いの全部又は、一部を委託することがあります。その場合には、当社において最善の考慮を行います。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">7</div><div class="policy-title">所属する認定個人情報保護団体の名称および苦情の解決の申し出先</div></div>
+    <div class="policy-body"><p>一般財団法人日本情報経済社会推進協会<br>認定個人情報保護団体事務局<br>住所　　：〒106-0032 東京都港区六本木1-9-9 六本木ファーストビル内<br>電話番号：03-5860-7565　フリーダイヤル：0120-700-779</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">8</div><div class="policy-title">開示等の手続について</div></div>
+    <div class="policy-body"><p>当社では、保有個人データに関して、ご本人の開示等（利用目的の通知、開示、内容の訂正、追加又は削除、利用の停止、消去及び第三者への提供の停止、第三者提供記録の開示）の請求に迅速に対応いたします。ご希望される場合には、お申し出いただいた方がご本人或いはその代理人であることを確認した上で、合理的な期間及び範囲で対応いたします。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">9</div><div class="policy-title">開示等の受付方法・窓口</div></div>
+    <div class="policy-body"><p>保有個人データに関する開示等のお申し出は、下記の受付窓口までご連絡ください。ご連絡いただきましたら、当社所定の「保有個人データ開示等請求書」を郵送または、FAX、メール等でお送り致します。内容ご記入の上必要書類を同封し、郵送またはメール等にてお申し込み下さい。（送付料は請求者のご負担となります。）</p><p>ご本人（または代理人）であることを確認した上で、ご希望の開示方法により回答いたします。</p></div>
+  </div>
+
+  <div class="policy-block">
+    <div class="policy-header"><div class="policy-num">10</div><div class="policy-title">個人情報の安全管理のために講じた措置について</div></div>
+    <div class="policy-body">
+      <p>当社では、個人情報を厳正に取り扱うため、JIS Q 15001に準拠した個人情報保護方針を基に、個人情報保護規程を策定し、個人情報保護マネジメントシステムを運用しております。</p>
+      <p>個人情報の適正な取扱いの確保のため、組織的・人的・物理的・技術的の4つの観点より安全管理措置を講じております。</p>
+      <p>具体的な安全管理措置については下記【問合せ窓口】よりお問い合わせください。</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-inner">
+      <span class="contact-label">問合せ窓口</span>
+      <div class="contact-name">個人情報問合せ窓口</div>
+      <div class="contact-detail">
+        窓口責任者：管理本部長<br>
+        住所　　　：東京都千代田区神田松永町13番地VORT秋葉原II<br>
+        電話　　　：03-5985-6168<br>
+        電子メール：<a href="mailto:kanrihonbu@nuworks.co.jp">kanrihonbu@nuworks.co.jp</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer style="background:var(--navy);color:rgba(255,255,255,.3);padding:32px 40px;text-align:center">
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:6px">NUWORKS <span style="background:linear-gradient(135deg,#FF6B9D,#9B51E0,#4A90D9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">株式会社</span></div>
+  <div style="font-size:11px;line-height:2;margin-bottom:8px">東京都千代田区神田松永町13番地VORT秋葉原II</div>
+  <div style="font-size:11px">© 2025 NUWORKS Inc. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
